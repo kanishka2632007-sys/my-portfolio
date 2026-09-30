@@ -1,0 +1,634 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050509;
+    color: #f5f2ff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ============================= */
+/* FUTURISTIC MOVING BACKGROUND */
+/* ============================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 55px 55px;
+    pointer-events: none;
+    z-index: -3;
+}
+
+/* Moving purple glow */
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(150, 100, 255, 0.20),
+        rgba(100, 50, 180, 0.08) 40%,
+        transparent 70%
+    );
+
+    top: -200px;
+    left: -150px;
+    filter: blur(35px);
+
+    animation: floatingGlow 16s ease-in-out infinite alternate;
+
+    pointer-events: none;
+    z-index: -2;
+}
+
+@keyframes floatingGlow {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(45vw, 15vh) scale(1.15);
+    }
+
+    50% {
+        transform: translate(65vw, 50vh) scale(0.9);
+    }
+
+    75% {
+        transform: translate(25vw, 70vh) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-5vw, 35vh) scale(0.95);
+    }
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 22px 7%;
+
+    background: rgba(5, 5, 9, 0.60);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(190, 160, 255, 0.12);
+
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+    color: #c6a7ff;
+    letter-spacing: 3px;
+}
+
+nav a {
+    color: #aaa4b8;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #c6a7ff;
+}
+
+/* ============================= */
+/* GENERAL SECTIONS */
+/* ============================= */
+
+section {
+    padding: 120px 10%;
+    position: relative;
+}
+
+/* ============================= */
+/* HOME */
+/* ============================= */
+
+#home {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 1200px;
+    margin: auto;
+
+    position: relative;
+}
+
+#home > p:first-child {
+    color: #a98cff;
+
+    font-size: 13px;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+
+/* NAME */
+
+#home h1 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(48px, 7.5vw, 100px);
+
+    line-height: 1.1;
+
+    margin: 18px 0;
+
+    letter-spacing: -2px;
+
+    white-space: nowrap;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #d2bcff,
+        #9b73e8,
+        #ffffff
+    );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: nameGlow 6s linear infinite;
+}
+
+@keyframes nameGlow {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 250% center;
+    }
+}
+
+/* INTRO */
+
+#home h2 {
+    max-width: 800px;
+
+    font-size: clamp(21px, 3vw, 36px);
+
+    font-weight: 300;
+
+    color: #d8d2e2;
+}
+
+#home h2 span {
+    color: #b99cff;
+}
+
+/* DESCRIPTION */
+
+#home > p:not(:first-child) {
+    max-width: 650px;
+
+    margin-top: 25px;
+
+    color: #918b9c;
+
+    font-size: 16px;
+}
+
+/* BUTTON */
+
+#home > a {
+    width: fit-content;
+
+    margin-top: 35px;
+
+    padding: 13px 25px;
+
+    border: 1px solid #8d6bd1;
+
+    border-radius: 30px;
+
+    color: #d9caff;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+#home > a:hover {
+    background: #8d6bd1;
+
+    color: white;
+
+    box-shadow:
+        0 0 20px rgba(141, 107, 209, 0.4),
+        0 0 60px rgba(141, 107, 209, 0.15);
+
+    transform: translateY(-3px);
+}
+
+/* ============================= */
+/* SECTION LABELS */
+/* ============================= */
+
+section > p:first-child {
+    color: #9c7bd8;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+/* ============================= */
+/* HEADINGS */
+/* ============================= */
+
+section h2 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(30px, 5vw, 55px);
+
+    margin: 18px 0 35px;
+
+    font-weight: 500;
+}
+
+/* ============================= */
+/* ABOUT */
+/* ============================= */
+
+#about p:not(:first-child) {
+    max-width: 750px;
+
+    color: #aaa4b5;
+
+    margin-bottom: 20px;
+}
+
+/* ============================= */
+/* EXPLORING */
+/* ============================= */
+
+section:not(#home):not(#about):not(#projects):not(#contact) > div {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+/* CARDS */
+
+article {
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid rgba(190, 160, 255, 0.12);
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.4s;
+}
+
+article:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(185, 156, 255, 0.5);
+
+    box-shadow:
+        0 15px 50px rgba(105, 70, 170, 0.15),
+        0 0 25px rgba(140, 100, 220, 0.08);
+}
+
+article h3 {
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #96909f;
+}
+
+/* ============================= */
+/* PROJECTS */
+/* ============================= */
+
+#projects article {
+    margin-bottom: 25px;
+
+    max-width: 850px;
+}
+
+#projects article > p:first-child {
+    color: #9c7bd8;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+#projects article h3 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 25px;
+
+    color: #e9e2f5;
+}
+
+#projects article p:last-child {
+    margin-top: 15px;
+
+    color: #a98cff;
+
+    font-size: 13px;
+}
+
+/* ============================= */
+/* JOURNEY */
+/* ============================= */
+
+section:last-of-type:not(#contact) p:not(:first-child) {
+    max-width: 700px;
+
+    color: #aaa4b5;
+
+    margin-bottom: 18px;
+}
+
+/* ============================= */
+/* CONTACT */
+/* ============================= */
+
+#contact {
+    text-align: center;
+}
+
+#contact p:not(:first-child) {
+    color: #aaa4b5;
+}
+
+#contact a {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: #c6a7ff;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #8d6bd1;
+
+    padding-bottom: 5px;
+
+    transition: 0.3s;
+}
+
+#contact a:hover {
+    color: white;
+
+    border-color: white;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer {
+    padding: 35px 10%;
+
+    border-top: 1px solid rgba(190, 160, 255, 0.1);
+
+    color: #686371;
+
+    font-size: 12px;
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 12px;
+
+        font-size: 12px;
+    }
+
+    section {
+        padding: 100px 7%;
+    }
+
+    #home h1 {
+        font-size: 47px;
+
+        letter-spacing: -2px;
+
+        white-space: nowrap;
+    }
+
+    #home h2 {
+        font-size: 22px;
+    }
+
+    section:not(#home):not(#about):not(#projects):not(#contact) > div {
+        grid-template-columns: 1fr;
+    }
+
+    article {
+        padding: 25px;
+    }
+}
+/* =========================
+   HERO ILLUSION
+========================= */
+
+#home {
+    overflow: hidden;
+}
+
+.hero-illusion {
+    position: absolute;
+
+    width: 650px;
+    height: 300px;
+
+    left: 50%;
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+/* Make hero content stay above illusion */
+
+#home > p,
+#home > h1,
+#home > h2,
+#home > a {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ORBITS */
+
+.orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(185, 156, 255, 0.20);
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* First orbit */
+
+.orbit-one {
+    width: 620px;
+    height: 150px;
+
+    animation: orbitSpin 12s linear infinite;
+}
+
+
+/* Second orbit */
+
+.orbit-two {
+    width: 480px;
+    height: 220px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(35deg);
+
+    border-color: rgba(140, 100, 220, 0.15);
+
+    animation: orbitSpinReverse 15s linear infinite;
+}
+
+
+/* Glowing moving dot */
+
+.
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: #c6a7ff;
+
+    border-radius: 50%;
+
+    left: 50%;
+    top: 50%;
+
+    box-shadow:
+        0 0 10px #c6a7ff,
+        0 0 25px #9b70e8;
+
+    animation: dotMove 10s linear infinite
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes orbitSpin {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+@keyframes orbitSpinReverse {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(35deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(-325deg);
+    }
+}
+
+
+@keyframes dotMove {
+
+    0% {
+        transform:
+            rotate(0deg)
+            translateX(310px)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            rotate(360deg)
+            translateX(310px)
+            rotate(-360deg);
+    }
+}
